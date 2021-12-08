@@ -8,9 +8,13 @@ I think you can just fork this repository and get to work on `scraper.py`.
 
 Otherwise, just steal `scraper.py` and `.github/workflows/scrape.yml` and you'll be good to go.
 
-**CSVs:** If you want every scrape to update a CSV or something like this, take a look at the bottom of [autoscraper-history](https://github.com/jsoma/autoscraper-history/blob/main/.github/workflows/scrape.yml). It'll commit any changes to the repo every time it's done running.
+### Saving CSV files
 
-**Scheduling:** Right now the yaml is set to only scrape when you click the "Run workflow" button in the Actions tab, but you can add something like
+If you want every scrape to update a CSV or something like this, take a look at the bottom of [autoscraper-history](https://github.com/jsoma/autoscraper-history/blob/main/.github/workflows/scrape.yml). It'll commit any changes to the repo every time it's done running.
+
+### Scheduling
+
+Right now the yaml is set to only scrape when you click the "Run workflow" button in the Actions tab, but you can add something like
 
 ```
   schedule:
@@ -19,9 +23,9 @@ Otherwise, just steal `scraper.py` and `.github/workflows/scrape.yml` and you'll
 
 To make it run the first minute of every hour.
 
-## Starting Chrome to do our scraping
+## How this all works
 
-To make it work, this repo does a few things. In a normal world, you start Chrome like this:
+To make Selenium + GitHub Actions work, this repo does a few magic things. In a normal world, you start Chrome like this:
 
 ```python
 from selenium import webdriver
