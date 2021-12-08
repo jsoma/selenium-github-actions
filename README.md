@@ -10,13 +10,28 @@ Otherwise, just steal `scraper.py` and `.github/workflows/scrape.yml` and you'll
 
 ### Saving CSV files
 
-If you want every scrape to update a CSV or something like this, take a look at the bottom of [autoscraper-history](https://github.com/jsoma/autoscraper-history/blob/main/.github/workflows/scrape.yml). It'll commit any changes to the repo every time it's done running.
+If you want every scrape to update a CSV or something like this, you'll need to edit your `scrape.yml` to commit to the repo after the scraper is done running.
+
+Take a look at the bottom of [autoscraper-history](https://github.com/jsoma/autoscraper-history/blob/main/.github/workflows/scrape.yml) to see how to do that. It should be one more step, something like this:
+
+```yaml
+      - name: Commit and push if content changed
+        run: |-
+          git config user.name "Automated"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          timestamp=$(date -u)
+          git commit -m "Latest data: ${timestamp}" || exit 0
+          git push
+```
+
+I'm pretty sure I lifted that code 100% from [Simmon Willison](https://simonwillison.net/2020/Oct/9/git-scraping/).
 
 ### Scheduling
 
 Right now the yaml is set to only scrape when you click the "Run workflow" button in the Actions tab, but you can add something like
 
-```
+```yaml
   schedule:
     - cron: '0 * * * *'
 ```
