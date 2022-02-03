@@ -15,10 +15,9 @@ jobs:
         run: apt list --installed
       - name: Remove Chrome
         run: sudo apt purge google-chrome-stable
-      - name: Remove Chromium
-        run: sudo apt purge chromium
-      - name: Install software
-        run: sudo apt install -y chromium-browser
+      # Chromium is already installed!
+      # - name: Install software
+      #   run: sudo apt install -y chromium-browser
       - name: Install all necessary packages
         run: pip install requests beautifulsoup4 pandas webdriver-manager selenium
       - name: Run the scraping script
