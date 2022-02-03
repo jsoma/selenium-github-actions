@@ -11,10 +11,10 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.9'
-      - name: Install software
-        run: sudo apt-get install -y chromium-browser
-      - name: Remove Chrome
-        run: sudo apt purge google-chrome-stable
+#      - name: Install software
+#        run: sudo apt-get install -y chromium-browser
+#      - name: Remove Chrome
+#        run: sudo apt purge google-chrome-stable
       - name: Install all necessary packages
         run: pip install requests beautifulsoup4 pandas webdriver-manager selenium
       - name: Run the scraping script
