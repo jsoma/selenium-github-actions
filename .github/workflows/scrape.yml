@@ -12,7 +12,9 @@ jobs:
         with:
           python-version: '3.9'
       - name: Remove Chrome
-        run: sudo apt purge google-chrome-stable chromium-browser
+        run: sudo apt purge google-chrome-stable
+      - name: Remove Chromium
+        run: sudo apt purge chromium-browser
       - name: Install software
         run: sudo apt-get install -y chromium-browser
       - name: Install all necessary packages
