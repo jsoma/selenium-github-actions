@@ -19,10 +19,8 @@ jobs:
         run: sudo apt purge google-chrome-stable
       - name: Remove Chromium
         run: sudo apt purge chromium-browser
-      - name: Check available versions of Chromium
-        run: sudo apt show chromium-browser | grep Version
       - name: Install software
-        run: sudo apt install -y chromium-browser=105.0.5195
+        run: sudo apt install -y chromium-browser
       - name: Install all necessary packages
         run: pip install requests beautifulsoup4 pandas webdriver-manager selenium
       - name: Run the scraping script
