@@ -20,7 +20,7 @@ jobs:
       - name: Remove Chromium
         run: sudo apt purge chromium-browser
       - name: Check available versions of Chromium
-        run: apt-show-versions -p chromium-browser
+        run: sudo apt show chromium-browser | grep Version
       - name: Install software
         run: sudo apt install -y chromium-browser=105.0.5195
       - name: Install all necessary packages
