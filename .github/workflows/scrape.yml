@@ -7,6 +7,8 @@ jobs:
     steps:
       - name: Check out this repo
         uses: actions/checkout@v2
+        with:
+          ref: specific-chromedriver-version
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
