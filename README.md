@@ -72,7 +72,7 @@ As a result, our chromedriver install code changed a little more:
 ```python
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
-from webdriver_manager.utils import ChromeType
+from webdriver_manager.core.utils import ChromeType
 
 driver_path = ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()
 driver = webdriver.Chrome(driver_path)
@@ -100,7 +100,7 @@ To combine the webdriver-manager driver path and the headless Chrome option, the
 ```python
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
-from webdriver_manager.utils import ChromeType
+from webdriver_manager.core.utils import ChromeType
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 
